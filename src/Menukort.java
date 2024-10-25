@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.FileWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +59,7 @@ public class Menukort
 
     public void writePizzaMenuToFile()
     {
-        File pizzaFile = new File("C:/Users/Isabella/OneDrive/IJ/MariosPizzabar\src");
+        File pizzaFile = new File("C:/Users/Isabella/OneDrive/IJ/MariosPizzabar/src/pizzaMenu.txt");
         try(FileWriter writer = new FileWriter(pizzaFile, true))
         {
             for(int i = 0 ; i < pizzaArrayList.size(); i++)
@@ -72,8 +71,8 @@ public class Menukort
                 int pizzaNumber = p.getPizzaNumber();
 
                 writer.append(pizzaName + ", ");
-                writer.append(pizzaPrice + ", "); //hvorfor skal dette ikke også være integer til string?
-                writer.append(Integer.toString(pizzaNumber)+ '\n');
+                writer.append(pizzaPrice + ", ");
+                writer.append(pizzaNumber + ", ");
 
                 System.out.println(p.getPizzaName() +", " + p.getPizzaPrice()+ ", " + p.getPizzaNumber());
 

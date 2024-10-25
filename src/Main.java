@@ -5,7 +5,9 @@ public class Main
 {
     public static void main(String[] args) {
 
-        new Main().run();
+        Main nonStaticMain = new Main();
+        nonStaticMain.run();
+
     }
 
     private void run()
