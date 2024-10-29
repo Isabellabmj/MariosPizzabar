@@ -92,8 +92,8 @@ public class Menukort
     private Pizza randomPizza()
     {
         Random random = new Random();
-        int randomIndeex = random.nextInt(pizzaMenuList.size());
-        return pizzaMenuList.get(randomIndeex);
+        int randomIndex = random.nextInt(pizzaMenuList.size());
+        return pizzaMenuList.get(randomIndex);
     }
 
     public Pizza getRandomPizza()

@@ -10,21 +10,21 @@ public class Bestillingsliste
     public Bestillingsliste()
     {}
 
-    private ArrayList<Ordre> ordreList = new ArrayList<>();
+    private ArrayList<Ordre> bestillingsListe = new ArrayList<>();
     private int currentOrderNr = 1;
 
     public void addOrderToList(Ordre ordre)
     {
-        ordreList.add(ordre);
+        bestillingsListe.add(ordre);
         currentOrderNr++;
         writeBestillingsliste();
     }
 
     public void printBestillingsListe()
     {
-        for (int i = 0; i < ordreList.size(); i++)
+        for (int i = 0; i < bestillingsListe.size(); i++)
         {
-            Ordre ordre = ordreList.get(i);
+            Ordre ordre = bestillingsListe.get(i);
             System.out.println(ordre);
         }
     }
@@ -34,10 +34,15 @@ public class Bestillingsliste
         return currentOrderNr;
     }
 
-    public void removeOrderByNumber(int ordreNumber)
-    {
-        ordreList.removeIf(o -> o.getOrdreNr() == ordreNumber);
-        writeBestillingsliste();//opdaterer filen efter ordren er fjernet.
+    public void removeOrdreByNumber(int ordreNumber) {
+        for (int i = 0; i < bestillingsListe.size(); i++) {
+            Ordre o = bestillingsListe.get(i);
+            if (o.getOrdreNr() == ordreNumber) {
+                bestillingsListe.remove(i);
+                writeBestillingsliste(); // Update the file after removal
+                break; // Exit loop after finding and removing the order
+            }
+        }
     }
 
     public void writeBestillingsliste() {
@@ -48,25 +53,27 @@ public class Bestillingsliste
 
         try (FileWriter writer = new FileWriter(bestillingsliste, false))
         {
-            for (int i = 0; i < ordreList.size(); i++) {
-                Ordre o = ordreList.get(i);
+            for (int i = 0; i < bestillingsListe.size(); i++) {
+                Ordre o = bestillingsListe.get(i);
                 Pizza pizza = o.getPizzaObjekt();
 
-                writer.append(String.format("ORDRE:\n" +
+                writer.append(String.format("ORDRE:\n" + // \n er for at skifte linje
                                 " - ordre Number: %d\n" +
                                 " - bestillings Tid: %s\n" +
                                 " - bestillings Dato: %s\n" +
+
                                 " - Pizza: %s, Price: %d, Nr: %d\n",
+
                         o.getOrdreNr(),
                         o.getBestillingsTid().format(timeFormatter),
                         o.getBestillingsDato().format(dateFormatter),
-                        pizza.getPizzaName(),
-                        pizza.getPizzaPrice(),
-                        pizza.getPizzaNumber()));
+
+                        pizza.getPizzaName(), pizza.getPizzaPrice(), pizza.getPizzaNumber()));
+
                 writer.append(System.lineSeparator());
 
 
-                System.out.println(o.getPizzaObjekt() + ", " + o.getBestillingsTid() + ", " + o.getOrdreNr());
+                //System.out.println(o.getPizzaObjekt() + ", " + o.getBestillingsTid() + ", " + o.getOrdreNr());
             }
 
         } catch (IOException e)

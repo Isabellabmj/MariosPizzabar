@@ -6,11 +6,11 @@ import java.util.Scanner;
 public class Main
 {
 
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in); //Skaber en scanner instans
 
     public static void main(String[] args)
     {
-        Main nonStaticMain = new Main();
+        Main nonStaticMain = new Main(); //opretter en instans af main klassen
         nonStaticMain.run();
     }
 
@@ -44,12 +44,12 @@ public class Main
                 try
                 {
                     ordreToRemove = Integer.parseInt(scanner.nextLine());
-                    bestillingsliste.removeOrderByNumber(ordreToRemove);
+                    bestillingsliste.removeOrdreByNumber(ordreToRemove);
                     System.out.println("Order number " + ordreToRemove + " has been removed.");
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid input! Please enter a valid order number.");
                 }
-                continue; // Go to the next iteration of the loop
+                continue; // Går til næste iteration af loopet
             }
 
             // Handle pizza selection
