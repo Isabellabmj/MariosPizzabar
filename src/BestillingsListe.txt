@@ -1,0 +1,24 @@
+ORDRE:
+ - ordre Number: 1
+ - bestillings Tid: 11.40
+ - bestillings Dato: 29-10-24
+ - Pizza: Zucchini and Goat Cheese, Price: 85, Nr: 23
+
+ORDRE:
+ - ordre Number: 2
+ - bestillings Tid: 11.40
+ - bestillings Dato: 29-10-24
+ - Pizza: Lamb and Mint, Price: 115, Nr: 30
+
+ORDRE:
+ - ordre Number: 3
+ - bestillings Tid: 11.40
+ - bestillings Dato: 29-10-24
+ - Pizza: Tuna and Sweetcorn, Price: 95, Nr: 12
+
+ORDRE:
+ - ordre Number: 4
+ - bestillings Tid: 11.40
+ - bestillings Dato: 29-10-24
+ - Pizza: Mushroom and Truffle Oil, Price: 120, Nr: 15
+
